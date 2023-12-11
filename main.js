@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth"
 
 /* === Firebase Setup === */
