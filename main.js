@@ -7,6 +7,7 @@ import {
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth"
 
 /* === Firebase Setup === */
@@ -41,6 +42,8 @@ const createAccountButtonEl = document.getElementById("create-account-btn")
 
 const signOutButtonEl = document.getElementById("sign-out-btn")
 
+const userProfilePictureEl = document.getElementById("user-profile-picture")
+
 /* == UI - Event Listeners == */
 
 signInWithGoogleButtonEl.addEventListener("click", authSignInWithGoogle)
@@ -55,6 +58,7 @@ signOutButtonEl.addEventListener("click", authSignOut)
 onAuthStateChanged(auth, (user) => {
   if (user) {
     showLoggedInView()
+    showProfilePicture(userProfilePictureEl, user)
   } else {
     showLoggedOutView()
   }
@@ -65,14 +69,13 @@ onAuthStateChanged(auth, (user) => {
 /* = Functions - Firebase - Authentication = */
 
 function authSignInWithGoogle() {
-  /*  Challenge:
-		Import the signInWithPopup function from 'firebase/auth'
-
-        Use the code from the documentaion to make this function work.
-       
-        If the login is successful then you should console log "Signed in with Google"
-        If something went wrong, then you should log the error message using console.error.
-    */
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log("Signed in with Google")
+    })
+    .catch((error) => {
+      console.error(error.message)
+    })
 }
 
 function authSignInWithEmail() {
@@ -136,4 +139,13 @@ function clearInputField(field) {
 function clearAuthFields() {
   clearInputField(emailInputEl)
   clearInputField(passwordInputEl)
+}
+
+function showProfilePicture(imgElement, user) {
+  const photoURL = user.photoURL
+  if (photoURL) {
+    imgElement.src = photoURL
+  } else {
+    imgElement.src = "assets/images/default-profile-picture.jpg"
+  }
 }
