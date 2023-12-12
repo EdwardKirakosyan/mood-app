@@ -8,19 +8,13 @@
   --light-color: #FFFEFC;
   --grey-color: #747E79;
   --dark-color: #000000;
-
   --primary-font: 'Cabin', sans-serif;
   --seconday-font: 'Calistoga', sans-serif;
-
   --border-width: 3px;
   --element-border-radius: 5px;
-
   --button-height: 5px;
-
   --small-button-height: 2px;
-
   --element-padding: 0.8em;
-
   --maximum-width: 320px;
 }
 
@@ -37,8 +31,6 @@ body {
   font-family: var(--primary-font);
 }
 
-/* === Typography === */
-
 h1,
 h2 {
   margin: 0;
@@ -54,8 +46,6 @@ h2 {
   text-align: center;
 }
 
-/* === Sections === */
-
 section {
   margin: 3em 0;
 }
@@ -65,8 +55,6 @@ section {
   flex-direction: column;
   gap: 1em;
 }
-
-/* === User Section === */
 
 .user-section {
   display: flex;
@@ -86,16 +74,12 @@ section {
   font-size: 1.2em;
 }
 
-/* === Nav === */
-
 nav {
   margin: 0.6em 0;
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-
-/* === Structure === */
 
 .container {
   max-width: var(--maximum-width);
@@ -115,8 +99,6 @@ nav {
   gap: 1em;
 }
 
-/* === Common for elements === */
-
 input,
 button {
   font-family: inherit;
@@ -134,30 +116,22 @@ button:focus {
   outline: none;
 }
 
-/* === Input fields === */
-
 input {
   font-weight: 300;
 }
 
 input::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: var(--grey-color);
   opacity: 1;
-  /* Firefox */
 }
 
 input:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
   color: var(--grey-color);
 }
 
 input::-ms-input-placeholder {
-  /* Microsoft Edge */
   color: var(--grey-color);
 }
-
-/* === Buttons === */
 
 button {
   font-weight: 600;
@@ -220,8 +194,6 @@ button:hover {
 .icon-img-btn:hover {
   filter: invert(0.5);
 }
-
-/* === IDs === */
 
 #logged-out-view {
   display: none;

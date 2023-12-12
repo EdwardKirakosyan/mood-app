@@ -1,4 +1,3 @@
-/* === Imports === */
 import { initializeApp } from "firebase/app"
 import {
   getAuth,
@@ -11,8 +10,6 @@ import {
   updateProfile,
 } from "firebase/auth"
 
-/* === Firebase Setup === */
-/* IMPORTANT: Replace this with your own firebaseConfig when doing challenges */
 const firebaseConfig = {
   apiKey: "AIzaSyAHJbZ3ikXgxNndXzZaBYXzFxAOftjYxt0",
   authDomain: "moody-14aac.firebaseapp.com",
@@ -23,10 +20,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider()
-
-/* === UI === */
-
-/* == UI - Elements == */
 
 const viewLoggedOut = document.getElementById("logged-out-view")
 const viewLoggedIn = document.getElementById("logged-in-view")
@@ -50,8 +43,6 @@ const displayNameInputEl = document.getElementById("display-name-input")
 const photoURLInputEl = document.getElementById("photo-url-input")
 const updateProfileButtonEl = document.getElementById("update-profile-btn")
 
-/* == UI - Event Listeners == */
-
 signInWithGoogleButtonEl.addEventListener("click", authSignInWithGoogle)
 
 signInButtonEl.addEventListener("click", authSignInWithEmail)
@@ -60,8 +51,6 @@ createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
 signOutButtonEl.addEventListener("click", authSignOut)
 
 updateProfileButtonEl.addEventListener("click", authUpdateProfile)
-
-/* === Main Code === */
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -72,10 +61,6 @@ onAuthStateChanged(auth, (user) => {
     showLoggedOutView()
   }
 })
-
-/* === Functions === */
-
-/* = Functions - Firebase - Authentication = */
 
 function authSignInWithGoogle() {
   signInWithPopup(auth, provider)
@@ -122,8 +107,6 @@ function authSignOut() {
 }
 
 function authUpdateProfile() {}
-
-/* == Functions - UI Functions == */
 
 function showLoggedOutView() {
   hideView(viewLoggedIn)
